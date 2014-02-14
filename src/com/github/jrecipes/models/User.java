@@ -7,8 +7,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
-import com.github.jrecipes.validation.ValidPassword;
-
 public class User {
 
 	private int id;
@@ -22,7 +20,6 @@ public class User {
 	private String nickname;
 	@Email
 	private String email;
-	@ValidPassword(password2=this.password2)
 	private String password;
 	private String password2;
 	private String nation;
