@@ -1,0 +1,4 @@
+JRecipes
+========
+
+A social reciper
