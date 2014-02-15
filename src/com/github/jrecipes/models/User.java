@@ -1,5 +1,7 @@
 package com.github.jrecipes.models;
 
+
+
 import java.sql.Date;
 
 import javax.validation.constraints.NotNull;
@@ -10,18 +12,26 @@ import org.hibernate.validator.constraints.Email;
 public class User {
 
 	private int id;
-	@Size(min=2, message="Your name must be at least 2 characters")
+	
+	@Size(min=2, message="Your name must be at least 2 characters.")
 	@NotNull
 	private String name;
-	@Size(min=2, message="Your surname must be at least 2 characters")
+	
+	@Size(min=2, message="Your surname must be at least 2 characters.")
 	@NotNull
 	private String surname;
-	@NotNull
+	
+	@Size(min=1, message="The nickname is required.")
 	private String nickname;
-	@Email
+	
+	@Email(message="The email doesn't appeare like an email.")
+	@NotNull(message="The email is required.")
+	@Size(min=3, message="The email doesn't appeare like an email.")
 	private String email;
+	
+	@Size(min=8, message="Your password must be at least 8 characters.")
+	@NotNull
 	private String password;
-	private String password2;
 	private String nation;
 	private String job;
 	private Date bornDate;
@@ -128,18 +138,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/**
-	 * @return the password2
-	 */
-	public String getPassword2() {
-		return password2;
-	}
-	/**
-	 * @param password2 the password2 to set
-	 */
-	public void setPassword2(String password2) {
-		this.password2 = password2;
-	}
+
 	/**
 	 * @return the nation
 	 */
@@ -178,10 +177,18 @@ public class User {
 	/**
 	 * @param bornDate the bornDate to set
 	 */
-	public void setBornDate(Date bornDate) {
+	/*public void setBornDate(java.util.Date bornDate) {
+		System.out.println("Prima in Date: " + bornDate);
+		this.bornDate = new java.sql.Date(bornDate.getTime());
+		System.out.println("Dopo in Sql: " + this.bornDate);
+	}*/
+
+	/**
+	 * @param bornDate the bornDate to set
+	 */
+	public void setBornDate(java.sql.Date bornDate) {
 		this.bornDate = bornDate;
 	}
-
 
 	@Override
 	public String toString() {
@@ -190,6 +197,4 @@ public class User {
 				+ password + ", nation=" + nation + ", job=" + job
 				+ ", bornDate=" + bornDate + "]";
 	}
-
-	
 }

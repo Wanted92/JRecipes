@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="refresh" content="3;${pageContext.request.contextPath}/home" />
+<meta http-equiv="refresh" content="3;${pageContext.request.contextPath}/" />
 <title>Happy coming in</title>
 </head>
 <body>

@@ -39,12 +39,13 @@ public class SigninController {
 	@RequestMapping(value="/doNewUser", method=RequestMethod.POST)
 	public String doNewUser(Model model, @Valid User user, BindingResult result) {
 		
-		signinService.create(user);
-		if(!result.hasErrors()){
-			return "userInsert";
-		}else{
-			return "userNotInsert";
+		if(result.hasErrors()){
+			System.out.println("Ci sono errori: " + result.getErrorCount() + " " + result.getAllErrors());
+			return "signin";
 		}
+		signinService.create(user);
+		System.out.println("Sono qui");
+		return "userInsert";
 	}
 
 	/**Method to set the service

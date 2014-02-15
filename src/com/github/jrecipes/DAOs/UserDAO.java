@@ -29,8 +29,8 @@ public class UserDAO {
 				user);
 
 		return jdbc
-				.update("insert into User (name, surname, nickname, email, password, nation, job)"
-						+ " values (:name, :surname, :nickname, :email, :password, :nation, :job)", parameters) == 1;
+				.update("insert into User (name, surname, nickname, email, password, nation, job, bornDate)"
+						+ " values (:name, :surname, :nickname, :email, :password, :nation, :job, :bornDate)", parameters) == 1;
 	}
 
 	
